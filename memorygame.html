@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="design_memgame.css">
+</head>
+
+<body>
+    <h1 style="width:350px;margin:auto;border: 5px solid white;padding:1%; color : white; font-family : Calibri; text-align : center;border-radius:5px">MEMORY GAME</h1>
+    <br>
+
+    <button id="starts" style="background-color:darkgreen;font-size:18px;cursor:pointer;padding:10px;color:white;border:4px green;border-radius:5px" onclick="start()">START GAME</button>
+    <br>
+    
+    <table>
+    <tr>
+        <td id="tile1" onclick="tile_1()"><p></p></td>
+        <td id="tile2" onclick="tile_2()"><p></p></td>
+        <td id="tile3" onclick="tile_3()"><p></p></td>
+        <td id="tile4" onclick="tile_4()"><p></p></td>
+    </tr>
+    <tr>
+        <td id="tile5" onclick="tile_5()"><p></p></td>
+        <td id="tile6" onclick="tile_6()"><p></p></td>
+        <td id="tile7" onclick="tile_7()"><p></p></td>
+        <td id="tile8" onclick="tile_8()"><p></p></td>
+    </tr>
+    <tr>
+        <td id="tile9" onclick="tile_9()"><p></p></td>
+        <td id="tile10" onclick="tile_10()"><p></p></td>
+        <td id="tile11" onclick="tile_11()"><p></p></td>
+        <td id="tile12" onclick="tile_12()"><p></p></td>
+    </tr>
+    <tr>
+        <td id="tile13" onclick="tile_13()"><p></p></td>
+        <td id="tile14" onclick="tile_14()"><p></p></td>
+        <td id="tile15" onclick="tile_15()"><p></p></td>
+        <td id="tile16" onclick="tile_16()"><p></p></td>
+    </tr>    
+    </table>
+    <br>
+    <span id="nooftries" style="background-color:navy;font-family:helvetica;color:white;border-radius:3px;padding:7px;marigin:10px">MOVES : 0
+    </span>
+    <br>
+    <br>
+    <span id="points" style="background-color:navy;font-family:helvetica;color:white;border-radius:3px;padding:7px">POINTS : 0
+    </span>
+
+    <script type="text/javascript" src="jscrit_memgame.js"></script>
+
+</body>
+
+</html>
