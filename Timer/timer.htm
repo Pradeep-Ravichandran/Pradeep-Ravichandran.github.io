@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <link rel= "stylesheet" type="text/css" href="design-hack-mode.css">
+      
+   <link href='https://fonts.googleapis.com/css?family=Exo' rel='stylesheet' type='text/css'>
+   </head>
+   
+   <body>
+      
+      <h1 style="margin:auto;padding:20px; color : white; font-family : 'exo',sans-serif; text-align : center; font-size : 30px;background:crimson;border-radius:5px">ROCKET LAUNCH TIMER</h1><br>
+      <h2 style="font-family:'exo',sans-serif;color:white;teXt-align:center">ENTER DEADLINE :</h2>
+      <input type="number" class="gettime" id="day" placeholder="Days">
+      <input type="number" class="gettime" id="hr" placeholder="Hours">
+      <input type="number" class="gettime" id="min" placeholder="Minutes">
+      <input type="number" class="gettime" id="sec" placeholder="Seconds">
+      
+      <button style="background-color:darkmagenta" class="buttondisp" onclick="input()" id="submit"><b> SUBMIT </b></button><br><br><br>    
+      
+      <div class="timeblock">
+         <div class="block">
+            <span class="box" id="days">00</span><br>
+            <span class="unit">DAYS</span>
+         </div>
+         <div class="block">
+            <span class="box" id="hours">00</span><br>
+            <span class="unit">HOURS</span>
+         </div>
+         <div class="block">
+            <span class="box" id="mins">00</span><br>
+            <span class="unit">MINS</span>
+         </div>
+         <div class="block">
+            <span class="box" id="secs">00</span><br>
+            <span class="unit">SECS</span>
+         </div>
+      </div>
+      <br>
+      
+      <button id="buttons" class="buttondisp" onclick="start1()">START</button>
+      <button id="buttons" class="buttondisp" onclick="stop1()">STOP</button>
+      <button id="buttons" class="buttondisp" onclick="rese()">RESET</button> 
+      
+      <script type="text/javascript" src="jscript-hack-mode.js"></script>    
+   
+   </body>
+</html>

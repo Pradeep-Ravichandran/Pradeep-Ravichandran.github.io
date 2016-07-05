@@ -1,0 +1,74 @@
+html {
+background-image : url("rockets.jpg"); 
+background-position : left center fixed;
+background-size : cover;
+}
+
+body{
+text-align : center;
+font-family: 'exo',sans-serif;
+} 
+
+.box{
+display : inline-block;
+border-radius : 5px;
+margin : 10px;
+width : 100px;
+color : white;
+
+text-align : center;
+font-size : 45px;
+padding : 15px;
+font-family  : 'exo',sans-serif;
+background-color : black;
+}
+
+#timeblock{
+display : inline-block;
+margin : auto;
+text-align : center;
+}
+
+.unit{
+font-size : 25px;
+color : oldlace;
+font-family: 'exo',sans-serif;
+}
+
+.block{
+margin : auto;
+display : inline-block;
+color : solid navy;
+}
+
+.gettime{
+border-radius:1px;
+margin:10px;
+border:none;
+width:150px;
+padding:5px;
+color:dimgray
+background-color: azure;
+font-family: 'exo',sans-serif;
+text-align:center;
+font-size: 30px;
+}
+
+.buttondisp{
+border: none;
+font-family: 'exo',sans-serif;
+font-weight: bold;
+border-radius: 3px;
+font-size: 25px;
+display:inline-block;
+padding: 10px 15px;
+margin: 15px;
+background-color: green;
+color : white;    
+width:120px;
+cursor:pointer;
+}
+
+button:hover{
+    background: crimson;
+}

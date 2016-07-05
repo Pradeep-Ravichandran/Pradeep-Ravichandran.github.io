@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>POKE - DODGE</title>
+      <link rel="stylesheet" type="text/css" href="game_design.css">
+      <link href='https://fonts.googleapis.com/css?family=Exo' rel='stylesheet' type='text/css'>
+   </head>
+   <body>
+      <p id="gametitle">POKE - DODGE</p>
+      
+      <button class="box" onclick="start()">START</button>
+      <button class="box" onclick="pause()">PAUSE</button>
+      <button class="box"><a style="color:white;text-decoration:none" href="pokedodge.html">RESET</a></button>
+      <button class="box"><a style="color:white;text-decoration:none" href="inst.html">HELP</a></button><br>
+      <p class="box" id="score" style="background-color:#006600;margin:auto;padding:10px;border:1px solid white">SCORE : 0</p>
+      <h3 style="font-family:'Exo',sans-serif;color:#ffff66">--------   Developed by LEGENDARY GAMES   --------</h3>
+      <canvas id="game_area" width="1300" height="350" style="border:1px solid black"></canvas>
+   
+      <script type="text/javascript" src="game_script.js"></script>
+   </body>
+</html>

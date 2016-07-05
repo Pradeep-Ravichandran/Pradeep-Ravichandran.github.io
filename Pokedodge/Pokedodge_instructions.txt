@@ -1,0 +1,12 @@
+POKE - DODGE
+       - Developed by Legendary Games!
+
+Instructions :
+$ Click 'START' to start the game.
+$ Press SPACEBAR to dodge pikachu against other pokemons.
+$ Score is calculated on the basis of no. of pokemons you dodged from !
+$ Click 'PAUSE' to pause the game.
+$ Click 'RESET' to reset the game.
+$ If pikachu collides with pokeball, GAME IS OVER !!
+
+Enjoy Dodging! 

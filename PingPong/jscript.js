@@ -7,25 +7,27 @@ var canvas = document.getElementById("game_area");
 var pad1 = canvas.getContext("2d");
 var pad2 = canvas.getContext("2d");
 var object = canvas.getContext("2d");
+var pongball = new Image();
+pongball.src = "ball.png";
 var time = new Date();
 var start_time = time.getTime();
 
 var paddle1 = {
     x: 5,
     y: 160,
-    width: 20,
-    height: 80,
+    width: 15,
+    height: 100,
     score: 0,
     color: 'yellow'
 }
 
 var paddle2 = {
-    x: 1275,
+    x: 1280,
     y: 160,
-    width: 20,
-    height: 80,
+    width: 15,
+    height: 100,
     score: 0,
-    color: 'yellow'
+    color: 'aqua'
 }
 
 var ball = {
@@ -34,9 +36,9 @@ var ball = {
     width: 20,
     height: 20,
     speed: 5,
-    left: 1,
-    move: 1,
-    color: '#ff0066'
+    left: 1,         //ball.left=1 shows ball should move leftwards
+    down: 1,         //ball.down=1 shows ball should move downwards 
+    move: 1,         //ball.move=1 shows ball should move
 }
 
 function sound(src) {
@@ -54,8 +56,11 @@ function sound(src) {
     }
 }
 
-
 window.addEventListener("keydown", move, false);
+pad1.fillStyle = paddle1.color;
+pad1.fillRect(paddle1.x, paddle1.y, paddle1.width, paddle1.height);
+pad2.fillStyle = paddle2.color;
+pad2.fillRect(paddle2.x, paddle2.y, paddle2.width, paddle2.height);
 
 function animate() {
     if (ball.move == 1) {
@@ -75,18 +80,18 @@ function draw() {
     object.clearRect(ball.x, ball.y, ball.width, ball.height);
     var t = new Date();
 
-    if ((ball.x == (paddle1.x + 20)) && (((ball.y < (paddle1.y + 80)) && (ball.y > paddle1.y)) || (((ball.y + 20) < (paddle1.y + 80)) && ((ball.y + 20) > paddle1.y)))) {
+    if ((ball.x == (paddle1.x + 15)) && (((ball.y < (paddle1.y + 100)) && (ball.y > paddle1.y)) || (((ball.y + 20) < (paddle1.y + 100)) && ((ball.y + 20) > paddle1.y)))) {
         ball.collide = 1;
         ball.left = 0;
         hit.play();
         paddle1.score++;
-        paddle1.y = Math.floor(Math.random() * 320);
-    } else if ((ball.x == (paddle2.x - 20)) && (((ball.y < (paddle2.y + 80)) && (ball.y > paddle2.y)) || (((ball.y + 20) < (paddle2.y + 80)) && ((ball.y + 20) > paddle2.y)))) {
+        paddle1.y = Math.floor(Math.random() * 300);
+    } else if ((ball.x == (paddle2.x - 15)) && (((ball.y < (paddle2.y + 100)) && (ball.y > paddle2.y)) || (((ball.y + 20) < (paddle2.y + 100)) && ((ball.y + 20) > paddle2.y)))) {
         ball.collide = 1;
         ball.left = 1;
         hit.play();
         paddle2.score++;
-        paddle2.y = Math.floor(Math.random() * 320);
+        paddle2.y = Math.floor(Math.random() * 300);
     }
 
     if (move_up == 1) {
@@ -111,51 +116,74 @@ function draw() {
 
     if (ball.left == 1) {
         ball.x -= ball.speed;
+        if (ball.down == 1) {
+            ball.y += ball.speed;
+        } else {
+            ball.y -= ball.speed;
+        }
     } else {
         ball.x += ball.speed;
+        if (ball.down == 1) {
+            ball.y += ball.speed;
+        } else {
+            ball.y -= ball.speed;
+        }
+    }
+    if (ball.y <= 0) {
+        ball.y += ball.speed;
+        ball.down = 1;
+    }
+    if (ball.y >= 380) {
+        ball.y -= ball.speed;
+        ball.down = 0;
     }
 
     pad1.fillStyle = paddle1.color;
     pad1.fillRect(paddle1.x, paddle1.y, paddle1.width, paddle1.height);
     pad2.fillStyle = paddle2.color;
     pad2.fillRect(paddle2.x, paddle2.y, paddle2.width, paddle2.height);
-    object.fillStyle = ball.color;
-    object.fillRect(ball.x, ball.y, ball.width, ball.height);
+    object.drawImage(pongball, ball.x, ball.y, ball.width, ball.height);
 
     document.getElementById("score").innerHTML = "SCORE = " + paddle1.score + " : " + paddle2.score;
     if (ball.x <= 0) {
         object.clearRect(ball.x, ball.y, ball.width, ball.height);
-        ball.x = 625;
-        ball.left = 0;
         paddle2.score++;
         document.getElementById("score").innerHTML = "SCORE = " + paddle1.score + " : " + paddle2.score;
         bgm.stop();
         gameover.play();
-        window.alert("GAME OVER....PLAYER-2 WINS !!");
+        pad1.clearRect(paddle1.x, paddle1.y, paddle1.width, paddle1.height);
+        pad2.clearRect(paddle2.x, paddle2.y, paddle2.width, paddle2.height);
+        pad1.rect(0, 0, 1300, 400);
+        pad1.fillStyle = "#009900";
+        pad1.fill();
+        object.font = "50px 'Exo',sans-serif";
+        object.fillStyle = "white";
+        object.fillText("GAME OVER !!", 494, 150);
+        object.fillText("PLAYER-2 WINS !", 465, 220);
         ball.move = 0;
     }
 
     if (ball.x >= 1280) {
         object.clearRect(ball.x, ball.y, ball.width, ball.height);
-        ball.x = 625;
-        ball.left = 1;
         paddle1.score++;
         document.getElementById("score").innerHTML = "SCORE = " + paddle1.score + " : " + paddle2.score;
         bgm.stop();
         gameover.play();
-        window.alert("GAME OVER....PLAYER-1 WINS !!");
+        pad1.clearRect(paddle1.x, paddle1.y, paddle1.width, paddle1.height);
+        pad2.clearRect(paddle2.x, paddle2.y, paddle2.width, paddle2.height);
+        pad1.rect(0, 0, 1300, 400);
+        pad1.fillStyle = "#009900";
+        pad1.fill();
+        object.font = "50px 'Exo',sans-serif";
+        object.fillStyle = "white";
+        object.fillText("GAME OVER !!", 494, 150);
+        object.fillText("PLAYER-1 WINS !", 465, 220);
         ball.move = 0;
     }
 
 }
 
 function start() {
-    pad1.fillStyle = paddle1.color;
-    pad1.fillRect(paddle1.x, paddle1.y, paddle1.width, paddle1.height);
-    pad2.fillStyle = paddle2.color;
-    pad2.fillRect(paddle2.x, paddle2.y, paddle2.width, paddle2.height);
-    object.fillStyle = ball.color;
-    object.fillRect(ball.x, ball.y, ball.width, ball.height);
     bgm.play();
     animate();
 
@@ -173,7 +201,8 @@ function move(e) {
 
 function resume() {
     ball.move = 1;
-    start();
+    animate();
+    //start();
 }
 
 function pause() {

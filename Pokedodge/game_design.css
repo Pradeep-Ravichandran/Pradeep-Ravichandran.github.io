@@ -1,0 +1,48 @@
+html {
+    margin: auto;
+    text-align: center;
+    
+    
+    background: url('Forest.jpg');
+  
+    background-size: cover;
+}
+#gametitle {
+    font-size: 30px;
+    font-family: 'Exo',sans-serif;
+    font-weight: 900;
+    background-color:crimson;
+    width: 300px;
+    text-align: center;
+    margin: auto;
+    color: white;
+    padding: 5px;
+    border-radius: 7px
+}
+#instruction {
+    font-family: calibri;
+    font-size: 20px;
+    font-weight: 900;
+}
+.box {
+    width: 150px;
+    background-color:#333399;
+    margin: 8px;
+    color: white;
+    border-radius: 4px;
+    padding: 5px;
+    font-size: 20px;
+    text-align: center;
+    font-family: 'Exo' , sans-serif;
+    border-radius: 6px;
+    cursor: pointer;
+    border: 2px solid #333399;
+    font-weight: 1000;
+}
+span {
+    font-size: 25px;
+    color: crimson
+}
+
+canvas{
+}
